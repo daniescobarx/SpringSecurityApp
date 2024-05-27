@@ -20,6 +20,25 @@ public class SpringSecurityAppApplication {
 			PermissionEntity createPermission = PermissionEntity.builder()
 					.name("CREATE")
 					.build();
+
+			PermissionEntity readPermission = PermissionEntity.builder()
+					.name("READ")
+					.build();
+
+			PermissionEntity updatePermission = PermissionEntity.builder()
+					.name("UPDATE")
+					.build();
+
+			PermissionEntity deletePermission = PermissionEntity.builder()
+					.name("DELETE")
+					.build();
+
+			PermissionEntity refactorPermission = PermissionEntity.builder()
+					.name("REFACTOR")
+					.build();
+
+
+
 		};
 	}
 }

@@ -31,19 +31,38 @@ public class SecurityConfig {
 
     //condiciones de seguridad
     //stateless - va depender del tiempo del token
+//    @Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+//        return httpSecurity
+//                .csrf(csrf -> csrf.disable())
+//                .httpBasic(Customizer.withDefaults())
+//                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//                .authorizeHttpRequests(http -> {
+//                    //configurar los endpoints publicos
+//                    http.requestMatchers(HttpMethod.GET, "/auth/hello").permitAll();
+//
+//                    //configurar los endpoints privados
+//                    http.requestMatchers(HttpMethod.GET, "/auth/hello-secured").hasAuthority("CREATE");
+//
+//                    //pasa cualquier enpoint q no fue especificado - desde que tengas un user para autenticar
+//                    //http.anyRequest().authenticated();
+//
+//                    //rechaza el resto de endpoint que no fue especificado, mismo q tengas permission
+//                    http.anyRequest().denyAll();
+//                })
+//                .build();
+//    }
+
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .csrf(csrf -> csrf.disable())
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(http -> {
-                    http.requestMatchers(HttpMethod.GET, "/auth/hello").permitAll();
-                    http.requestMatchers(HttpMethod.GET, "/auth/hello-secured").hasAuthority("CREATE");
-                    http.anyRequest().denyAll();
-                })
                 .build();
     }
+
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {

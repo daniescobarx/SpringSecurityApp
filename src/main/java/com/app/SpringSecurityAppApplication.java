@@ -10,6 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
 import java.util.Set;
 
 @SpringBootApplication
@@ -105,6 +106,8 @@ public class SpringSecurityAppApplication {
 					.credentialNoExpired(true)
 					.roles(Set.of(roleDeveloper))
 					.build();
+
+			userRepository.saveAll(List.of(userDaniela, userAndy, userFredy, userPaula));
 
 		};
 	}

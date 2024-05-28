@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListResourceBundle;
-import java.util.Optional;
 
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {

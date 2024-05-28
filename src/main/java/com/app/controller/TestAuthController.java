@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class TestAuthController {
 
     @GetMapping("/get")
+//    @PreAuthorize("hasAuthority('READ')")
     public String helloGet(){
         return "Hello World - GET";
     }

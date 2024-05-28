@@ -2,31 +2,35 @@ package com.app.controller;
 
 
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@PreAuthorize("denyAll()")
 @RequestMapping("/auth")
 public class TestAuthController {
 
-    @GetMapping("/hello")
-    @PreAuthorize("permitAll()")
-    public String hello(){
-        return "oi pessoal permitAll";
+    @GetMapping("/get")
+    public String helloGet(){
+        return "Hello World - GET";
     }
 
-    @GetMapping("/hello-secured")
-    @PreAuthorize("hasAnyAuthority('READ')")
-    public String helloSecured(){
-        return "oi pessoal teste secured ";
+    @PostMapping("/post")
+    public String helloPost(){
+        return "Hello World - POST";
     }
 
-    @GetMapping("/hello-secured2")
-    public String helloSecured2(){
-        return "oi pessoal nao é para passar";
+    @PutMapping("/put")
+    public String helloPut(){
+        return "Hello World - PUT";
     }
 
+    @DeleteMapping("/delete")
+    public String helloDelete(){
+        return "Hello World - DELETE";
+    }
+
+    @PatchMapping("/patch")
+    public String helloPatch(){
+        return "Hello World - PATCH";
+    }
 }
